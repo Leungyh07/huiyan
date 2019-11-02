@@ -44,10 +44,11 @@ export default {
             //console.log(newVal);
             //搜索接口
             var that = this;
+            var cityId = this.$store.state.city.id;
             this.cancelRequest();
 
             //cancelRequest用法：https://blog.csdn.net/weixin_34133829/article/details/89541555
-            this.axios.get('/api/searchList?cityId=10&kw='+newVal,{
+            this.axios.get('/api/searchList?cityId='+cityId+'&kw='+newVal,{
                 cancelToken: new this.axios.CancelToken(function(c) {
                     that.source = c;
                 })
