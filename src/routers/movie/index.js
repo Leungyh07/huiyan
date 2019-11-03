@@ -23,6 +23,28 @@ export default {
             component : () => import('@/components/Search')
         },
         {
+            //多视图路由
+            path : 'detail/1/:movieId',
+            components : {
+                default : ()=> import('@/components/NowPlaying'),
+                detail : ()=> import('@/views/Movie/detail')
+            },
+            props : {
+                detail : true
+            }
+        },
+        {
+            //多视图路由
+            path : 'detail/2/:movieId',
+            components : {
+                default : ()=> import('@/components/ComingSoon'),
+                detail : ()=> import('@/views/Movie/detail')
+            },
+            props : {
+                detail : true
+            }
+        },
+        {
             path : '/movie',
             redirect : '/movie/nowPlaying'
         }
